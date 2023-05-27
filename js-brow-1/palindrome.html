@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    <label for="texto">Type something:</label>
+	  <input type="text" id="texto">
+    <p id="resultado"></p>
+    <button class="bouton">Check</button>
+
+    <script>
+        const input = document.querySelector("#texto");
+        const resultado = document.querySelector("#resultado");
+        const boton = document.querySelector(".bouton");
+
+        function palindromeWord(word) {
+        i = 0;
+        j = word.length -1;
+    
+        while (i < j) {
+          if (word[i] != word[j]) {
+          return false;
+        }
+        i++;
+        j--;
+      }
+      return true;
+    }
+
+    boton.addEventListener("click", function(){
+      const palabra = input.value.toLowerCase();
+      const esPalindrome = palindromeWord(palabra);
+
+      if (esPalindrome) {
+        resultado.textContent = "It's palindrome";
+      }
+      else {
+        resultado.textContent = "It's not palindrome";
+      }
+    })
+
+  </script>
+</body>
+</html>
